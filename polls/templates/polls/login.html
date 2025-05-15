@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>登入頁面</h3>
+    <form action="/verify_login/" method="post">  <!-- 傳到 django api 位置與方法 -->
+        {% csrf_token %}  <!-- django 安全性要求 -->
+
+        <label for="account_input">電子郵件地址：</label><br>
+        <input type="text" id="account_input" name="account" required><br><br>  <!-- 變數設定 -->
+
+        <label for="password_input">密碼：</label><br>
+        <input type="password" id="password_input" name="password" required><br><br>  <!-- 變數設定 -->
+
+        <input type="checkbox" id="ischecked_input" name="ischecked">  <!-- 變數設定 -->
+        <label for="ischecked_input">記住我</label><br><br>
+
+        <button type="submit">提交</button>
+        
+         <p><b>錯誤：</b>{{ error }}</p>  <!-- 錯誤訊息設定 -->
+    </form>
+
+</body>
+</html>
+<!--  bootstrap forms pick styles -->

@@ -1,0 +1,4 @@
+Django==4.2.20
+firebase-admin==6.8.0
+Pyrebase4==4.8.0
+setuptools==78.1.1

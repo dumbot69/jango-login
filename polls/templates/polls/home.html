@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if firebase_user_id %}  <!-- 成功登入時顯示 -->
+    <h1>歡迎回來，{{ user_email }} !</h1>
+    <p>您已透過 Firebase 成功登入。</p>
+    <p>(您的 Firebase User ID: {{ firebase_user_id }})</p>
+    <form method="post" action="/logout/">
+        {% csrf_token %}
+        <button type="submit">登出</button>
+    </form>
+    {% else %}   <!-- 尚未成功登入時顯示 -->
+        <h1>歡迎來到首頁</h1>
+        <p>您目前未登入。 <a href="/login/">點此登入</a></p>
+    {% endif %}
+
+</body>
+</html>
